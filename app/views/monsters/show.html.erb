@@ -1,1 +1,21 @@
-<%# Update me %><%= @monster.inspect %>
+<html>
+    <body>
+        <table class="default">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+            </tr>       
+            <% @monsters.each do |monstruo| %>
+                <tr>
+                    <td><%= link_to monstruo.name, monstruo %></td>
+                    <td><%= monstruo.description %></td>
+                    <% t = Tweet.where(monster_id: monstruo.id).count %>
+                    <% if t>1 then %>
+                        <td class="destacados"> Twitero Destacado </td>
+                    <% end %>
+                </tr>
+            <% end %>
+        </table>
+        <%= link_to "Nuevo", new_monster_path, class: "btn btn-primary rounded-pill mb-2 text-start ps-4" %>
+    </body>
+</html>

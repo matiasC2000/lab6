@@ -1,0 +1,14 @@
+<%= form_with model: monster do |f| %> 
+    <%= f.label :Nombre %>  
+    <%= f.text_field :name %>
+    <%= f.label :Descripcion %>   
+    <%= f.text_area :description %>
+    <%= f.label :Telefono %>    
+    <%= f.text_field :phone %>
+    <%= f.label :Nacimiento %>
+    <%= f.date_field :birthdate %> 
+    <%= f.label :cover_picture %>
+    <%= f.file_field :cover_picture, multiple: false %> 
+    <%= f.hidden_field :location_point %>
+    <%= f.submit 'Guardar' %> 
+<% end %>
